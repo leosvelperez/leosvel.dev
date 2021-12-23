@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const { content } = Astro.props;
 ---
@@ -38,9 +39,13 @@ const { content } = Astro.props;
   <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
 </head>
 
-<body class="min-h-screen w-screen bg-gradient-to-b from-cyan-900 to-cyan-700 flex flex-col font-mono text-white">
-  <Header />
+<body class="min-h-screen w-screen bg-white flex flex-col font-mono text-white">
+  <Header {...content} />
 
-  <slot />
+  <div class="flex flex-1">
+    <slot />
+  </div>
+
+  <Footer />
 </body>
 </html>
