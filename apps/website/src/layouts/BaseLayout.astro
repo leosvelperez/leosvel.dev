@@ -1,0 +1,46 @@
+---
+import Header from '../components/Header.astro';
+
+const { content } = Astro.props;
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{content.title}</title>
+
+  <meta name="viewport" content="width=device-width">
+
+  <meta name="author" content="Leosvel Pérez Espinosa">
+  <meta name="description" content="Leosvel Pérez Espinosa - Web Developer">
+  <meta name="keywords" content="Leosvel Pérez Espinosa, Blog, Web Development, Angular, JavasScript, TypeScript, HTML, CSS, Monorepos, Nx">
+  <meta name="theme-color" content="#164e63" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={content.title}>
+  <meta property="og:description" content={content.description}>
+  <meta property="og:url" content="https://leosvel.dev">
+  <meta property="og:site_name" content="leosvel.dev">
+  <meta property="og:image" content="https://leosvel.dev/favicon-32x32.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@leosvelperez_">
+  <meta name="twitter:site" content="@leosvelperez_">
+  <meta name="twitter:title" content={content.title}>
+  <meta name="twitter:description" content={content.description}>
+  <meta name="twitter:image" content="https://leosvel.dev/favicon-32x32.png">
+
+  <link rel="canonical" href="https://leosvel.dev">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
+</head>
+
+<body class="min-h-screen w-screen bg-gradient-to-b from-cyan-900 to-cyan-700 flex flex-col font-mono text-white">
+  <Header />
+
+  <slot />
+</body>
+</html>
