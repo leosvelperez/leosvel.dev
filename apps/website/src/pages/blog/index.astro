@@ -1,0 +1,12 @@
+---
+import Blog from '../../components/Blog.astro';
+import Layout from '../../layouts/BaseLayout.astro';
+
+const title = 'Blog | leosvel.dev';
+const description =
+  'My personal blog with articles about programming, web development, and other topics.';
+---
+
+<Layout content={{ title, description }}>
+  <Blog />
+</Layout>

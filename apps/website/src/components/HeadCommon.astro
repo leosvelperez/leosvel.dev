@@ -1,0 +1,30 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="UTF-8" />
+<title>{title}</title>
+
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#164e63" />
+
+<meta name="author" content="Leosvel Pérez Espinosa" />
+<meta name="description" content="Leosvel Pérez Espinosa - Web Developer" />
+<meta
+  name="keywords"
+  content="Leosvel Pérez Espinosa, Blog, Web Development, Angular, JavasScript, TypeScript, HTML, CSS, Monorepos, Nx"
+/>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+
+<link rel="sitemap" href="/sitemap.xml" />
+
+<!-- Global CSS -->
+<link rel="stylesheet" href={Astro.resolve('../styles/global.css')} />

@@ -1,9 +1,16 @@
 ---
-const { hideHome, highlightBlog } = Astro.props;
+export interface Props {
+  currentPage: string;
+}
+
+const { currentPage: rawCurrentPage } = Astro.props;
+const currentPage = rawCurrentPage.replace(/[\/\\]+$/, '');
+const showHome = currentPage !== '';
+const highlightBlog = currentPage === '/blog';
 ---
 
 <div class="flex items-center bg-cyan-900 sm:text-xl">
-  {!hideHome ? (
+  {showHome ? (
     <a
       class="p-4 sm:p-6 flex items-center hover:text-cyan-400 transition-all"
       href="/"
