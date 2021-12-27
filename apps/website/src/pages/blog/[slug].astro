@@ -1,0 +1,29 @@
+---
+import BlogPost from '../../components/BlogPost.astro';
+import Layout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  const posts = Astro.fetchContent('../../data/blog-posts/*.md');
+
+  return posts.map((post) => ({
+    params: { slug: post.file.pathname.split('/').pop().split('.').shift() },
+    props: { post },
+  }));
+}
+
+const {
+  Content,
+  title,
+  description,
+  date,
+  heroImage,
+  heroImageAlt,
+  thumbnailImage,
+} = Astro.props.post;
+---
+
+<Layout content={{ title, description, socialImage: thumbnailImage }}>
+  <BlogPost {title} {date} {heroImage} {heroImageAlt}>
+    <Content />
+  </BlogPost>
+</Layout>

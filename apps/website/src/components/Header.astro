@@ -9,17 +9,14 @@ const showHome = currentPage !== '';
 const highlightBlog = currentPage === '/blog';
 ---
 
-<div class="flex items-center bg-cyan-900 sm:text-xl">
+<div class="p-4 sm:py-6 sm:px-12 flex items-center bg-cyan-900 sm:text-xl">
   {showHome ? (
-    <a
-      class="p-4 sm:p-6 flex items-center hover:text-cyan-400 transition-all"
-      href="/"
-    >
+    <a class="flex items-center hover:text-cyan-400 transition-all" href="/">
       <img
         class="mr-2 h-8 w-8 rounded-full grayscale"
-        src="/assets/avatar.jpeg"
-        height="16"
-        width="16"
+        src="/assets/avatar-32x32.png"
+        height="32"
+        width="32"
         alt="Leosvel Pérez Espinosa avatar"
       />
       <span>leosvel.dev</span>
@@ -28,7 +25,7 @@ const highlightBlog = currentPage === '/blog';
     ''
   )}
 
-  <div class="p-4 sm:p-6 flex flex-1 justify-end items-center">
+  <div class="flex flex-1 justify-end items-center">
     <a
       class={`flex items-center hover:text-cyan-400 transition-all ${
         highlightBlog ? 'underline underline-offset-2 text-cyan-400' : ''

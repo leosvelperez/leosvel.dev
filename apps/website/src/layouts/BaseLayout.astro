@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  content: { title: string; description: string };
+  content: { title: string; description: string; socialImage?: string };
 }
 
 import HeadCommon from '../components/HeadCommon.astro';
@@ -14,11 +14,15 @@ const { content } = Astro.props;
 <html lang="en">
   <head>
     <HeadCommon title={content.title} />
-    <HeadSEO {content} canonicalURL={Astro.request.canonicalURL} />
+    <HeadSEO
+      {content}
+      canonicalURL={Astro.request.canonicalURL}
+      socialImage={content.socialImage}
+    />
   </head>
 
   <body
-    class="min-h-screen w-screen bg-white flex flex-col font-mono text-white selection:bg-cyan-900 selection:text-white"
+    class="min-h-screen w-screen bg-white flex flex-col font-mono text-white selection:bg-cyan-900 selection:text-white overflow-x-hidden"
   >
     <Header currentPage={Astro.request.url.pathname} />
 

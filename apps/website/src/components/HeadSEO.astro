@@ -1,12 +1,15 @@
 ---
 export interface Props {
-  content: { title: string; description: string };
+  content: { title: string; description: string; socialImage?: string };
   canonicalURL: URL;
 }
 
-const { content, canonicalURL } = Astro.props;
-const imageSrc = 'favicon-32x32.png';
-const canonicalImageSrc = new URL(imageSrc, Astro.site);
+const {
+  content,
+  canonicalURL,
+  socialImage = 'favicon-32x32.png',
+} = Astro.props;
+const canonicalImageSrc = new URL(socialImage, Astro.site);
 ---
 
 <!-- Page Metadata -->

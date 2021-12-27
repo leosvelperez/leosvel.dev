@@ -1,0 +1,84 @@
+---
+title: "What's new in Angular v13!"
+description: "Angular v13 is out! Let's take a look at the new features and changes."
+date: 'November 04, 2021'
+heroImage: '/assets/blog/whats-new-in-angular-v13/hero.png'
+heroImageAlt: "What's new in Angular v13!"
+thumbnailImage: '/assets/blog/whats-new-in-angular-v13/thumbnail.png'
+thumbnailImageAlt: "What's new in Angular v13!"
+---
+
+It’s November and it has been six months since the last time we had a major version release of the Angular framework back in May 2021. The wait is over and Angular version 13 was just released. Let’s take a look at some of the features and changes released in this new version.
+
+## Form improvements
+
+### Better type checking for form control status
+
+A new type called `FormControlStatus` was added to enable better type checking when working with form control statuses. This is a union type of all possible status strings for form controls. Up to now, we couldn’t benefit from Typescript type checking due to the `AbstractControl.status` being typed as a string and the `AbstractControl.statusChanges` being an `Observable<any>`.
+
+### Helpers to manage validators
+
+Several functions were added to allow managing our form validators:
+
+- `setValidators`: Sets one or multiple validators by overriding the registered ones. It also accepts null for removing all registered validators.
+- `addValidators`: Adds one or multiple validators.
+- `removeValidators`: Removes one or multiple validators.
+- `hasValidator`: Checks if a validator is already registered.
+
+> All these functions also have an async version: `setAsyncValidators`, `addAsyncValidators`, `removeAsyncValidators`, and `hasAsyncValidator`.
+
+## Router improvements
+
+### Disable a link’s navigation
+
+Setting the `routerLink` directive value to `null` or `undefined` will now completely disable navigation. For HTML Anchor elements, it will also remove the `href` attribute. Before, the `null` and `undefined` inputs for the `routerLink` directive were equivalent to an empty string and there was no way to disable the link’s navigation.
+
+### Other improvements and changes
+
+- The router now supports question marks in query param values.
+- A new output for the `routerLinkActive` directive called `isActiveChange` is added. This new output emits whenever the associated link becomes active or inactive.
+- The `loadChildren` property in the route definition doesn’t support string values anymore. This has been deprecated for quite some time now and dynamic ESM import statements should be used instead.
+
+## Typescript 4.4.2 support
+
+Angular 13 now comes with support for Typescript 4.4.2. Older versions are no longer supported. Make sure to have a look at the [Typescript release notes](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-4.html) for breaking changes.
+
+## Ivy engine FTW
+
+After several versions of Angular transitioning to the Ivy view engine, the legacy View engine is no longer supported. Ivy is now the only view engine supported by Angular.
+
+> Existing libraries will be automatically migrated to use “partial” compilation mode and some metadata previously required for the legacy View engine will be removed.
+
+## Angular Package Format v13
+
+The [Angular Package Format (APF)](https://angular.io/guide/angular-package-format) is a specification of the structure and format of the Angular framework packages and it is also the recommended way of packaging any third-party library in the ecosystem.
+
+With Angular 13, we also get a new version of the APF and these are some of the main changes in it:
+
+- Ivy "partial" compilation output is produced.
+- ES2020 output is produced (ESM2020, FESM2020).
+- UMD bundles are no longer produced.
+- Use the [package exports with the subpath patterns](https://nodejs.org/api/packages.html#packages_subpath_patterns) feature from Node.js to conditionally expose the different available outputs per entry point.
+
+## Internet Explorer 11 is gone!
+
+Back in late April, the Angular team shared an RFC to gather feedback on a path to deprecate and remove support for Internet Explorer 11. As a result, IE11 was deprecated in Angular 12 and its support has been completely dropped now with the Angular 13 release.
+
+## Build performance improvements
+
+This release comes with several performance improvements to the build pipeline:
+
+- The persistent build cache for applications introduced in v12.1 as an experimental opt-in feature is now enabled by default.
+- Incremental builds performance was improved by avoiding re-analyze source files that don’t contain any Angular traits (`Component`, `Directive`, `Pipe`, `Injectable`, `NgModule` decorators).
+- Added support for inlining external Adobe Fonts.
+- Improved build performance by using ESBuild in the CSS optimization pipeline for component and global styles.
+- Improved build performance by using a combination of ESBuild and Terser to optimize bundles and global scripts.
+
+## Other changes
+
+- Node.js 16 was added to the node engines range versions supported by all Angular packages. Also, versions older than v12.20.0 are no longer supported.
+- New projects are now created using RxJS 7. Existing projects are remaining on RxJS 6 when migrating.
+- Component factories are no longer required to dynamically create components. The `ViewContainerRef.createComponent` now supports passing a component type directly instead of a factory. The existing signature that accepts a `ComponentFactory` is now deprecated.
+- The `renderModuleFactory` from `@angular/platform-server` is no longer necessary with Ivy and `renderModule` should be used instead.
+- The `destroyAfterEach` option of the Angular testing module teardown now has its default value set to `true`. This was introduced back in Angular 12.1 with a default value of `false`. Existing workspaces will be opted-out automatically with a migration to prevent breaking changes.
+- The Angular language service now supports autocompletion for string literal union types in templates.

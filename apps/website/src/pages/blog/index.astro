@@ -4,9 +4,13 @@ import Layout from '../../layouts/BaseLayout.astro';
 
 const title = 'Blog | leosvel.dev';
 const description =
-  'My personal blog with articles about programming, web development, and other topics.';
+  'My blog with articles about web development and programming in general.';
+
+const posts = Astro.fetchContent('../../data/blog-posts/*.md').sort(
+  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+);
 ---
 
 <Layout content={{ title, description }}>
-  <Blog />
+  <Blog title="Leosvel's blog" {description} {posts} />
 </Layout>

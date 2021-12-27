@@ -1,0 +1,63 @@
+---
+export interface Props {
+  title: string;
+  date: string;
+  heroImage: string;
+  heroImageAlt: string;
+}
+
+const { title, date, heroImage, heroImageAlt } = Astro.props;
+---
+
+<article
+  class="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto px-4 py-12 sm:px-8 md:px-12 text-sm sm:text-base text-cyan-900 leading-8 sm:leading-8 transition-all"
+>
+  <section class="mb-12 text-center">
+    <img class="w-full mb-16" src={heroImage} alt={heroImageAlt} />
+    <p class="m-0">{date}</p>
+    <h1 class="text-2xl sm:text-4xl font-bold transition-all">{title}</h1>
+  </section>
+  <main class="blog-content">
+    <slot />
+  </main>
+</article>
+
+<style lang="scss">
+  .blog-content {
+    :global(> * + *) {
+      @apply mt-4;
+    }
+
+    :global(h2) {
+      @apply mt-16 text-xl font-bold;
+    }
+
+    :global(h3) {
+      @apply mt-6 text-lg font-bold;
+    }
+
+    :global(a) {
+      @apply underline underline-offset-2 text-cyan-700 hover:bg-cyan-700 hover:text-white;
+    }
+
+    :global(code) {
+      @apply bg-gray-100 italic px-1 rounded-sm;
+    }
+
+    :global(blockquote) {
+      @apply pl-4 border-l-4 border-cyan-700 italic;
+    }
+
+    :global(ul) {
+      @apply list-disc list-inside ml-4;
+    }
+
+    :global(li > ul) {
+      @apply list-circle ml-6;
+    }
+
+    :global(li > ul > li > ul) {
+      @apply list-square ml-6;
+    }
+  }
+</style>
