@@ -12,8 +12,14 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
 <article
   class="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto px-4 py-12 sm:px-8 md:px-12 text-sm sm:text-base text-cyan-900 leading-8 sm:leading-8 transition-all"
 >
-  <section class="mb-12 text-center">
-    <img class="w-full mb-16" src={heroImage} alt={heroImageAlt} />
+  <section class="mb-16 text-center">
+    <img
+      class="mb-16 w-full h-60 sm:h-80 md:h-[420px] object-cover"
+      height="420"
+      width="auto"
+      src={heroImage}
+      alt={heroImageAlt}
+    />
     <p class="m-0">{date}</p>
     <h1 class="text-2xl sm:text-4xl font-bold transition-all">{title}</h1>
   </section>
@@ -29,7 +35,7 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
     }
 
     :global(h2) {
-      @apply mt-16 text-xl font-bold;
+      @apply mt-12 text-xl font-bold;
     }
 
     :global(h3) {

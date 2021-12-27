@@ -15,10 +15,16 @@ const { title, description, date, link, thumbnailImage, thumbnailImageAlt } =
 ---
 
 <a
-  class="group flex flex-col shadow-md shadow-cyan-700/50 ring-1 ring-cyan-400 hover:shadow-lg hover:shadow-cyan-700/50 transition-all"
+  class="group flex flex-col max-w-xs shadow-md shadow-cyan-700/50 ring-1 ring-cyan-400 hover:shadow-lg hover:shadow-cyan-700/50 transition-all"
   href={link}
 >
-  <img class="w-full" src={thumbnailImage} alt={thumbnailImageAlt} />
+  <img
+    class="w-full h-36 object-cover"
+    height="144"
+    width="100%"
+    src={thumbnailImage}
+    alt={thumbnailImageAlt}
+  />
   <div class="p-4 md:p-8 flex flex-col">
     <h2 class="mb-4 text-xl font-bold">{title}</h2>
     <p class="mb-8">{description}</p>
