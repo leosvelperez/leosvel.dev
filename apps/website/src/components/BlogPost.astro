@@ -23,9 +23,15 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
     <p class="m-0">{date}</p>
     <h1 class="text-2xl sm:text-4xl font-bold transition-all">{title}</h1>
   </section>
+
   <main class="blog-content">
     <slot />
   </main>
+
+  <a
+    class="mt-8 inline-block underline underline-offset-2 text-cyan-700 hover:bg-cyan-700 hover:text-white"
+    href="/blog">&leftarrow; Return to all blog posts</a
+  >
 </article>
 
 <style lang="scss">
