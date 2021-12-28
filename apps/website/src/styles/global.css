@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+body::-webkit-scrollbar {
+  @apply w-[6px] bg-cyan-100;
+}
+
+body::-webkit-scrollbar-track {
+  @apply bg-cyan-100;
+}
+
+body::-webkit-scrollbar-thumb {
+  @apply bg-cyan-600;
+}

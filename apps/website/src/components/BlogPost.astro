@@ -65,5 +65,22 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
     :global(li > ul > li > ul) {
       @apply list-square ml-6;
     }
+
+    :global(h2),
+    :global(h3) {
+      @apply flex items-center;
+
+      &:hover :global(a) {
+        @apply opacity-100;
+      }
+
+      :global(a) {
+        @apply hidden sm:block opacity-0 leading-4 -ml-5 pr-1 transition-all hover:bg-transparent;
+      }
+    }
+
+    :global(.heading-link img) {
+      @apply h-4 w-4 fill-current;
+    }
   }
 </style>

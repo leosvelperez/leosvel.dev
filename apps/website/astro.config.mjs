@@ -4,4 +4,34 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
   buildOptions: {
     site: 'https://leosvel.dev',
   },
+  markdownOptions: {
+    render: [
+      '@astrojs/markdown-remark',
+      {
+        rehypePlugins: [
+          'rehype-slug',
+          [
+            'rehype-autolink-headings',
+            {
+              behavior: 'prepend',
+              content: {
+                type: 'element',
+                tagName: 'span',
+                properties: { className: ['heading-link'] },
+                children: [
+                  {
+                    type: 'element',
+                    tagName: 'img',
+                    properties: { src: '/assets/link.svg' },
+                    children: [],
+                  },
+                ],
+              },
+            },
+          ],
+          'rehype-external-links',
+        ],
+      },
+    ],
+  },
 });
