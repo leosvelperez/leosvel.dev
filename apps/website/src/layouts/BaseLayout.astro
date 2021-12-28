@@ -1,6 +1,9 @@
 ---
 export interface Props {
-  content: { title: string; description: string; socialImage?: string };
+  title: string;
+  description: string;
+  socialImage?: string;
+  socialImageAlt?: string;
 }
 
 import HeadCommon from '../components/HeadCommon.astro';
@@ -8,16 +11,18 @@ import Header from '../components/Header.astro';
 import HeadSEO from '../components/HeadSEO.astro';
 import Footer from '../components/Footer.astro';
 
-const { content } = Astro.props;
+const { title, description, socialImage, socialImageAlt } = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
   <head>
-    <HeadCommon title={content.title} />
+    <HeadCommon {title} />
     <HeadSEO
-      {content}
+      {title}
+      {description}
       canonicalURL={Astro.request.canonicalURL}
-      socialImage={content.socialImage}
+      {socialImage}
+      {socialImageAlt}
     />
   </head>
 

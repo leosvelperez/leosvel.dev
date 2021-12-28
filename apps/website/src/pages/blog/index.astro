@@ -11,6 +11,6 @@ const posts = Astro.fetchContent('../../data/blog-posts/*.md').sort(
 );
 ---
 
-<Layout content={{ title, description }}>
+<Layout {title} {description}>
   <Blog title="Leosvel's blog" {description} {posts} />
 </Layout>

@@ -19,10 +19,16 @@ const {
   heroImage,
   heroImageAlt,
   thumbnailImage,
+  thumbnailImageAlt,
 } = Astro.props.post;
 ---
 
-<Layout content={{ title, description, socialImage: thumbnailImage }}>
+<Layout
+  {title}
+  {description}
+  socialImage={thumbnailImage}
+  socialImageAlt={thumbnailImageAlt}
+>
   <BlogPost {title} {date} {heroImage} {heroImageAlt}>
     <Content />
   </BlogPost>
