@@ -29,7 +29,18 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
               },
             },
           ],
-          'rehype-external-links',
+          [
+            'rehype-external-links',
+            {
+              content: {
+                type: 'element',
+                tagName: 'img',
+                properties: { src: '/assets/external-link.svg' },
+                children: [],
+              },
+              contentProperties: { className: ['external-link-icon'] },
+            },
+          ],
         ],
       },
     ],

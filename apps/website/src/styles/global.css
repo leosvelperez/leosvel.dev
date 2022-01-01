@@ -4,15 +4,15 @@
 
 body {
   scrollbar-width: thin;
-  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  scrollbar-color: #0891b2 transparent;
 }
 
 body::-webkit-scrollbar {
-  @apply w-[6px] bg-cyan-100;
+  @apply w-[6px] bg-transparent;
 }
 
 body::-webkit-scrollbar-track {
-  @apply bg-cyan-100;
+  @apply bg-transparent;
 }
 
 body::-webkit-scrollbar-thumb {

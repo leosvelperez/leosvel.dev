@@ -29,7 +29,7 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
   </main>
 
   <a
-    class="mt-8 inline-block underline underline-offset-2 text-cyan-700 hover:bg-cyan-700 hover:text-white"
+    class="mt-8 inline-block underline-offset-2 text-cyan-700 hover:underline"
     href="/blog">&leftarrow; Return to all blog posts</a
   >
 </article>
@@ -49,7 +49,7 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
     }
 
     :global(a) {
-      @apply underline underline-offset-2 text-cyan-700 hover:bg-cyan-700 hover:text-white;
+      @apply underline-offset-2 text-cyan-700 hover:underline;
     }
 
     :global(code) {
@@ -86,7 +86,15 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
     }
 
     :global(.heading-link img) {
-      @apply h-4 w-4 fill-current;
+      @apply h-4 w-4;
+    }
+
+    :global(.external-link-icon) {
+      @apply relative inline-flex top-[2px];
+
+      :global(img) {
+        @apply h-4 w-4;
+      }
     }
   }
 </style>
