@@ -35,7 +35,10 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
               content: {
                 type: 'element',
                 tagName: 'img',
-                properties: { src: '/assets/external-link.svg' },
+                properties: {
+                  src: '/assets/external-link.svg',
+                  alt: 'External link icon',
+                },
                 children: [],
               },
               contentProperties: { className: ['external-link-icon'] },

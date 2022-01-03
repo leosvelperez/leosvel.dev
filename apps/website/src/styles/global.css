@@ -2,19 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+* {
   scrollbar-width: thin;
   scrollbar-color: #0891b2 transparent;
 }
 
-body::-webkit-scrollbar {
-  @apply w-[6px] bg-transparent;
+::-webkit-scrollbar {
+  @apply h-[6px] w-[6px] bg-transparent;
 }
 
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   @apply bg-transparent;
 }
 
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   @apply bg-cyan-600;
 }

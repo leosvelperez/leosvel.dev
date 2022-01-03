@@ -41,23 +41,23 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
     }
 
     :global(h2) {
-      @apply mt-12 text-xl font-bold;
+      @apply mt-12 text-xl sm:text-2xl font-bold;
     }
 
     :global(h3) {
-      @apply mt-6 text-lg font-bold;
+      @apply mt-6 text-base sm:text-lg font-bold;
     }
 
     :global(a) {
       @apply underline-offset-2 text-cyan-700 hover:underline;
     }
 
-    :global(code) {
+    :global(:not(pre) code) {
       @apply bg-gray-100 italic px-1 rounded-sm;
     }
 
     :global(blockquote) {
-      @apply pl-4 border-l-4 border-cyan-700 italic;
+      @apply pl-4 border-l-4 border-cyan-700 bg-slate-50 italic;
     }
 
     :global(ul) {

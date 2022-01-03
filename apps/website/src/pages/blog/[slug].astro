@@ -1,6 +1,6 @@
 ---
+import Layout from '../../layouts/BlogPostLayout.astro';
 import BlogPost from '../../components/BlogPost.astro';
-import Layout from '../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
   const posts = Astro.fetchContent('../../data/blog-posts/*.md');
