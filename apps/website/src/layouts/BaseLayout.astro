@@ -12,17 +12,13 @@ export interface Props {
 }
 
 const { title, description, socialImage, socialImageAlt } = Astro.props;
+const { canonicalURL } = Astro.request;
 ---
 
 <html lang="en" class="scroll-smooth">
   <head>
-    <HeadCommon {title} />
-    <HeadSEO
-      {title}
-      {description}
-      canonicalURL={Astro.request.canonicalURL}
-      {socialImage}
-      {socialImageAlt}
+    <HeadCommon {title} {description} {canonicalURL} />
+    <HeadSEO {title} {description} {canonicalURL} {socialImage} {socialImageAlt}
     />
   </head>
 

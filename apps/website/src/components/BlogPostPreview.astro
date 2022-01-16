@@ -25,9 +25,9 @@ const { title, description, date, link, thumbnailImage, thumbnailImageAlt } =
     src={thumbnailImage}
     alt={thumbnailImageAlt}
   />
-  <div class="p-4 md:p-8 flex flex-col">
+  <div class="p-4 md:p-8 flex flex-col flex-1">
     <h2 class="mb-4 text-xl font-bold">{title}</h2>
-    <p class="mb-8">{description}</p>
+    <p class="mb-8 flex-1">{description}</p>
     <span class="self-end text-sm opacity-80">{date}</span>
   </div>
 </a>

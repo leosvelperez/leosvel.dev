@@ -1,30 +1,35 @@
 ---
 export interface Props {
+  canonicalURL: string;
+  description: string;
   title: string;
 }
 
-const { title } = Astro.props;
+const { canonicalURL, description, title } = Astro.props;
 ---
 
 <!-- Global Metadata -->
-<meta charset="UTF-8" />
-<title>{title}</title>
-
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
 <meta name="theme-color" content="#164e63" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="sitemap" href="/sitemap.xml" />
 
+<!-- Preload -->
+<link rel="preload" as="style" href={Astro.resolve('../styles/global.css')} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
 <meta name="author" content="Leosvel Pérez Espinosa" />
-<meta name="description" content="Leosvel Pérez Espinosa - Web Developer" />
+<meta name="description" content={description} />
 <meta
   name="keywords"
   content="Leosvel Pérez Espinosa, Blog, Web Development, Angular, JavasScript, TypeScript, HTML, CSS, Monorepos, Nx"
 />
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-
-<link rel="sitemap" href="/sitemap.xml" />
+<link rel="canonical" href={canonicalURL} />
 
 <!-- Global CSS -->
 <link rel="stylesheet" href={Astro.resolve('../styles/global.css')} />
