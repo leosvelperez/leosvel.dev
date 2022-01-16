@@ -34,65 +34,65 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
   >
 </article>
 
-<style lang="scss">
+<style lang="scss" global>
   .blog-content {
-    :global(> * + *) {
+    > * + * {
       @apply mt-4;
     }
 
-    :global(h2) {
+    h2 {
       @apply mt-12 text-xl sm:text-2xl font-bold;
     }
 
-    :global(h3) {
+    h3 {
       @apply mt-6 text-base sm:text-lg font-bold;
     }
 
-    :global(a) {
+    a {
       @apply underline-offset-2 text-cyan-700 hover:underline;
     }
 
-    :global(:not(pre) code) {
+    :not(pre) code {
       @apply bg-gray-100 italic px-1 rounded-sm;
     }
 
-    :global(blockquote) {
+    blockquote {
       @apply pl-4 border-l-4 border-cyan-700 bg-slate-50 italic;
     }
 
-    :global(ul) {
+    ul {
       @apply list-disc list-inside ml-4;
     }
 
-    :global(li > ul) {
+    li > ul {
       @apply list-circle ml-6;
     }
 
-    :global(li > ul > li > ul) {
+    li > ul > li > ul {
       @apply list-square ml-6;
     }
 
-    :global(h2),
-    :global(h3) {
+    h2,
+    h3 {
       @apply flex items-center;
 
-      &:hover :global(a) {
+      &:hover a {
         @apply opacity-100;
       }
 
-      :global(a) {
+      a {
         @apply hidden sm:block opacity-0 leading-4 -ml-5 pr-1 transition-all hover:bg-transparent;
       }
     }
 
-    :global(.heading-link img) {
+    .heading-link img {
       @apply h-4 w-4;
     }
 
-    :global(.external-link-icon) {
+    .external-link-icon {
       @apply relative inline-flex top-[2px];
 
-      :global(img) {
+      img {
         @apply h-4 w-4;
       }
     }

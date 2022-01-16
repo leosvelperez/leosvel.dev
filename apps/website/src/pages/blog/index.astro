@@ -12,5 +12,5 @@ const posts = Astro.fetchContent('../../data/blog-posts/*.md').sort(
 ---
 
 <Layout {title} {description}>
-  <Blog title="Leosvel's blog" {description} {posts} />
+  <Blog {description} {posts} />
 </Layout>
