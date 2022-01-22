@@ -1,8 +1,5 @@
 ---
-import HeadCommon from '../components/HeadCommon.astro';
-import Header from '../components/Header.astro';
-import HeadSEO from '../components/HeadSEO.astro';
-import Footer from '../components/Footer.astro';
+import { Footer, HeadCommon, Header, HeadSEO } from '@leosvel/common';
 
 export interface Props {
   title: string;
@@ -11,14 +8,27 @@ export interface Props {
   socialImageAlt?: string;
 }
 
-const { title, description, socialImage, socialImageAlt } = Astro.props;
+const {
+  title: pageTitle,
+  description,
+  socialImage,
+  socialImageAlt,
+} = Astro.props;
 const { canonicalURL } = Astro.request;
+const siteName = canonicalURL.hostname;
+const title = `${pageTitle} | ${siteName}`;
 ---
 
 <html lang="en" class="scroll-smooth">
   <head>
     <HeadCommon {title} {description} {canonicalURL} />
-    <HeadSEO {title} {description} {canonicalURL} {socialImage} {socialImageAlt}
+    <HeadSEO
+      {title}
+      {description}
+      {canonicalURL}
+      {siteName}
+      {socialImage}
+      {socialImageAlt}
     />
   </head>
 

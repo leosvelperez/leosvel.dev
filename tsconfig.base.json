@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@leosvel/blog": ["libs/blog/src/index.js"],
+      "@leosvel/common": ["libs/common/src/index.js"],
+      "@leosvel/landing": ["libs/landing/src/index.js"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

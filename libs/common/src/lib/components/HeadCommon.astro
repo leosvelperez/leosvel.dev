@@ -17,9 +17,6 @@ const { canonicalURL, description, title } = Astro.props;
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="sitemap" href="/sitemap.xml" />
 
-<!-- Preload -->
-<link rel="preload" as="style" href={Astro.resolve('../styles/global.css')} />
-
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
@@ -31,5 +28,6 @@ const { canonicalURL, description, title } = Astro.props;
 />
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Global CSS -->
-<link rel="stylesheet" href={Astro.resolve('../styles/global.css')} />
+<style global>
+  @import '../styles/global.css';
+</style>

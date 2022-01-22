@@ -3,6 +3,7 @@ export interface Props {
   canonicalURL: URL;
   description: string;
   title: string;
+  siteName: string;
   socialImage?: string;
   socialImageAlt?: string;
 }
@@ -11,6 +12,7 @@ const {
   canonicalURL,
   description,
   title,
+  siteName,
   socialImage = 'favicon-32x32.png',
   socialImageAlt = `Leosvel's avatar`,
 } = Astro.props;
@@ -22,7 +24,7 @@ const canonicalImageSrc = new URL(socialImage, Astro.site);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalURL} />
-<meta property="og:site_name" content="leosvel.dev" />
+<meta property="og:site_name" content={siteName} />
 <meta property="og:locale" content="en_US" />
 <meta property="og:image" content={canonicalImageSrc} />
 <meta property="og:image:alt" content={socialImageAlt} />

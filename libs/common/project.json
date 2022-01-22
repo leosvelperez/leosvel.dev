@@ -1,0 +1,7 @@
+{
+  "root": "libs/common",
+  "sourceRoot": "libs/common",
+  "projectType": "library",
+  "targets": {},
+  "tags": []
+}

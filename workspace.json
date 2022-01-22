@@ -1,6 +1,9 @@
 {
   "version": 2,
   "projects": {
+    "blog": "libs/blog",
+    "common": "libs/common",
+    "landing": "libs/landing",
     "website": "apps/website"
   }
 }
