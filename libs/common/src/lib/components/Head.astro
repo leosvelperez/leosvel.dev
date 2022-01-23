@@ -1,4 +1,6 @@
 ---
+import { Partytown } from '@builder.io/partytown/react';
+
 export interface Props {
   canonicalURL: URL;
   description: string;
@@ -19,6 +21,26 @@ const {
 const canonicalImageSrc = new URL(socialImage, Astro.site);
 ---
 
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#164e63" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="sitemap" href="/sitemap.xml" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="author" content="Leosvel Pérez Espinosa" />
+<meta name="description" content={description} />
+<meta
+  name="keywords"
+  content="Leosvel Pérez Espinosa, Blog, Web Development, Angular, JavasScript, TypeScript, HTML, CSS, Monorepos, Nx"
+/>
+<link rel="canonical" href={canonicalURL} />
+
 <!-- OpenGraph Tags -->
 <meta property="og:type" content="article" />
 <meta property="og:title" content={title} />
@@ -37,3 +59,14 @@ const canonicalImageSrc = new URL(socialImage, Astro.site);
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={canonicalImageSrc} />
 <meta name="twitter:image:alt" content={socialImageAlt} />
+
+<!-- Partytown -->
+<Partytown />
+
+<!-- Cloudflare Web Analytics -->
+<script type="text/partytown" defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "30e7f4a2b20548998ad672795c296f1c"}'></script>
+
+<!-- Global styles -->
+<style global>
+  @import '../styles/global.css';
+</style>

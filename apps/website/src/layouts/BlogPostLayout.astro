@@ -1,5 +1,5 @@
 ---
-import { Footer, HeadCommon, Header, HeadSEO } from '@leosvel/common';
+import { Footer, Head, Header } from '@leosvel/common';
 
 export interface Props {
   title: string;
@@ -21,8 +21,7 @@ const title = `${pageTitle} | ${siteName}`;
 
 <html lang="en" class="scroll-smooth">
   <head>
-    <HeadCommon {title} {description} {canonicalURL} />
-    <HeadSEO
+    <Head
       {title}
       {description}
       {canonicalURL}

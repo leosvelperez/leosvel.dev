@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "@builder.io/partytown": "~0.2.1",
     "@nrwl/cli": "~13.4.5",
     "@nrwl/tao": "~13.4.5",
     "@nrwl/workspace": "~13.4.5",
@@ -18,7 +19,7 @@
     "astro": "~0.22.13",
     "autoprefixer": "~10.4.2",
     "postcss": "~8.4.5",
-    "prettier": "^2.5.1",
+    "prettier": "~2.5.1",
     "prettier-plugin-astro": "~0.0.11",
     "rehype-autolink-headings": "~6.1.1",
     "rehype-external-links": "~1.0.1",

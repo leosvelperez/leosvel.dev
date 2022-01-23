@@ -424,6 +424,11 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@builder.io/partytown@~0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.2.1.tgz#45db05e4f6b19bbcabecabbd6143910eb9edc8e5"
+  integrity sha512-orvc9rubi77m+46hv3SvR+p5+EGEZFSFEc9RGch68OKcIfGm2+huHbHZmL75Z9IEvr5hURXwXpA5EiwMEiA+bg==
+
 "@cypress/webpack-preprocessor@^5.9.1":
   version "5.11.0"
   resolved "https://registry.yarnpkg.com/@cypress/webpack-preprocessor/-/webpack-preprocessor-5.11.0.tgz#f616a208b12b83636331d3421caa1574a7e0bd0c"
@@ -5587,7 +5592,7 @@ prettier-plugin-astro@~0.0.11:
     prettier "^2.4.1"
     sass-formatter "^0.7.2"
 
-prettier@^2.4.1, prettier@^2.5.1:
+prettier@^2.4.1, prettier@~2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.5.1.tgz#fff75fa9d519c54cf0fce328c1017d94546bc56a"
   integrity sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==
