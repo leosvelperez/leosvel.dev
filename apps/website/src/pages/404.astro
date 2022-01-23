@@ -7,12 +7,16 @@ const description = 'My personal website with my projects and blog.';
 
 <Layout {title} {description}>
   <div
-    class="p-16 flex flex-col w-full items-center justify-center text-center bg-cyan-900"
+    class="p-4 sm:p-16 flex flex-col w-full items-center justify-center text-center bg-cyan-900 transition-all"
   >
-    <h2 class="text-4xl">It looks like you're lost.</h2>
-    <p class="mt-8 text-lg">The page you're looking for doesn't exist.</p>
+    <h2 class="text-2xl sm:text-4xl transition-all">
+      It looks like you're lost.
+    </h2>
+    <p class="mt-8 sm:text-lg transition-all">
+      The page you're looking for doesn't exist.
+    </p>
     <a
-      class="mt-8 p-2 border-4 hover:border-cyan-400 hover:text-cyan-400 transition-all"
+      class="mt-12 sm:mt-16 p-2 border-2 hover:border-cyan-400 hover:text-cyan-400 transition-all"
       href="/"
     >
       Go back home
