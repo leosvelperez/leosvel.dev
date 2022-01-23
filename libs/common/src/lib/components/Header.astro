@@ -9,7 +9,7 @@ const showHome = currentPage !== '';
 const highlightBlog = currentPage === '/blog';
 ---
 
-<div class="p-4 sm:py-6 sm:px-12 flex items-center bg-cyan-900 sm:text-xl">
+<nav class="p-4 sm:py-6 sm:px-12 flex items-center bg-cyan-900 sm:text-xl">
   {showHome ? (
     <a class="flex items-center hover:text-cyan-400 transition-all" href="/">
       <img
@@ -45,4 +45,4 @@ const highlightBlog = currentPage === '/blog';
       <span>Blog</span>
     </a>
   </div>
-</div>
+</nav>

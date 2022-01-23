@@ -36,9 +36,9 @@ const title = `${pageTitle} | ${siteName}`;
   >
     <Header currentPage={Astro.request.url.pathname} />
 
-    <div class="flex flex-1">
+    <main class="flex flex-1">
       <slot />
-    </div>
+    </main>
 
     <Footer />
   </body>
