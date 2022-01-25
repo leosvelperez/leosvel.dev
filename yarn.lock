@@ -52,16 +52,7 @@
     unist-util-map "^3.0.0"
     unist-util-visit "^4.1.0"
 
-"@astrojs/parser@^0.20.2":
-  version "0.20.3"
-  resolved "https://registry.yarnpkg.com/@astrojs/parser/-/parser-0.20.3.tgz#2c23e583c0fef906cb597fd411c4679625a708b8"
-  integrity sha512-GyNWuVJU/VecbhDMlGFP+bNfvXvkN8w9fwOehNUa26fT3ONwb/qBS+TRQW034N05y/N5it0wGFT0MU+wzq+XSw==
-  dependencies:
-    acorn "^7.4.0"
-    locate-character "^2.0.5"
-    magic-string "^0.25.3"
-
-"@astrojs/parser@~0.22.0":
+"@astrojs/parser@^0.22.0", "@astrojs/parser@~0.22.0":
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/@astrojs/parser/-/parser-0.22.0.tgz#a717d4c2d7bb5080ae4c67077aec432cb8bce835"
   integrity sha512-H3YpRaVuW5mNPrcEEMzfNQla10TX6c/gQ73RrGK089C6yie3jSjIz0pw292E26larYC0zAlNLGH+IwhlYFPklA==
@@ -1345,7 +1336,7 @@ acorn-walk@^7.0.0, acorn-walk@^7.1.1:
   resolved "https://registry.yarnpkg.com/acorn-walk/-/acorn-walk-7.2.0.tgz#0de889a601203909b0fbe07b8938dc21d2e967bc"
   integrity sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA==
 
-acorn@^7.0.0, acorn@^7.1.1, acorn@^7.4.0:
+acorn@^7.0.0, acorn@^7.1.1:
   version "7.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
@@ -5583,14 +5574,19 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
-prettier-plugin-astro@~0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-astro/-/prettier-plugin-astro-0.0.11.tgz#7c6b422616502ed1ea32de52763594e36fbf653e"
-  integrity sha512-6y2XMRi4FIF0Z8milimHBM93nXZIUpTlkzoSW+wOY0olBvW9s+uY5HTqq0e63ML5mS6f0tJk3tonWIrxH9znpQ==
+prettier-plugin-astro@~0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-astro/-/prettier-plugin-astro-0.0.12.tgz#5f2ece3e3d18c4cd8660b19ebf39888e159d8eae"
+  integrity sha512-ZSNvHuyQ+fxgqA4qoiOf2FvN8FdWcBrAmnik3gPL466TFtMcOV2hVNVVErBcnG/qMyPf7WLwPvBLtTyWpDEUHg==
   dependencies:
-    "@astrojs/parser" "^0.20.2"
+    "@astrojs/parser" "^0.22.0"
     prettier "^2.4.1"
     sass-formatter "^0.7.2"
+
+prettier-plugin-tailwindcss@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.1.4.tgz#b09e826a57a0f69b0662eededd659b3d5a5551e7"
+  integrity sha512-kt3YFWqxcG9+bilBI0hPF7RjQZNtgBRvjJZGw6B2MNAjPqlfcYIiZnNaIEnq4XimKLTzZYxz6jQnUXmSQ/5njg==
 
 prettier@^2.4.1, prettier@~2.5.1:
   version "2.5.1"

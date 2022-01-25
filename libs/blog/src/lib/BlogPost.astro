@@ -41,27 +41,27 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
     }
 
     h2 {
-      @apply mt-12 text-xl sm:text-2xl font-bold;
+      @apply mt-12 text-xl font-bold sm:text-2xl;
     }
 
     h3 {
-      @apply mt-6 text-base sm:text-lg font-bold;
+      @apply mt-6 text-base font-bold sm:text-lg;
     }
 
     a {
-      @apply underline-offset-2 text-cyan-700 hover:underline;
+      @apply text-cyan-700 underline-offset-2 hover:underline;
     }
 
     :not(pre) code {
-      @apply bg-gray-100 italic px-1 rounded-sm;
+      @apply rounded-sm bg-gray-100 px-1 italic;
     }
 
     blockquote {
-      @apply pl-4 border-l-4 border-cyan-700 bg-sky-100 italic;
+      @apply border-l-4 border-cyan-700 bg-sky-100 pl-4 italic;
     }
 
     ul {
-      @apply list-disc list-inside ml-4;
+      @apply ml-4 list-inside list-disc;
     }
 
     li > ul {
@@ -81,7 +81,7 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
       }
 
       a {
-        @apply hidden sm:block opacity-0 leading-4 -ml-5 pr-1 transition-all hover:bg-transparent;
+        @apply -ml-5 hidden pr-1 leading-4 opacity-0 transition-all hover:bg-transparent sm:block;
       }
     }
 
@@ -90,14 +90,14 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
     }
 
     .heading-link img {
-      @apply h-4 w-4 m-0;
+      @apply m-0 h-4 w-4;
     }
 
     .external-link-icon {
-      @apply relative inline-flex top-[2px];
+      @apply relative top-[2px] inline-flex;
 
       img {
-        @apply h-4 w-4 m-0;
+        @apply m-0 ml-[2px] h-4 w-4;
       }
     }
   }

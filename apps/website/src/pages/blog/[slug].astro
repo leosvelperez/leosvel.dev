@@ -20,7 +20,9 @@ const {
   heroImageAlt,
   thumbnailImage,
   thumbnailImageAlt,
+  canonicalUrl,
 } = Astro.props.post;
+console.log(canonicalUrl);
 ---
 
 <Layout
@@ -28,6 +30,7 @@ const {
   {description}
   socialImage={thumbnailImage}
   socialImageAlt={thumbnailImageAlt}
+  {canonicalUrl}
 >
   <BlogPost {title} {date} {heroImage} {heroImageAlt}>
     <Content />

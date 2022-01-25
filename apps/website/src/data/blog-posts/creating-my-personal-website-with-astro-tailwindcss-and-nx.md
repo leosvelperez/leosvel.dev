@@ -136,7 +136,7 @@ Because the files in the `public` directory are never processed by the Astro bui
 
 The website currently has 3 types of pages: the landing page, the blog page, and the blog post page. All of them share a common layout consisting of a header, the main content, and a footer.
 
-> There's also a 404 page, but I'm not going to cover it here since it's a very simple page. It's a page that will appear when the user tries to access a page that doesn't exist.
+> There's also a 404 page, but I'm not going to cover it here since it's very simple. It's a page that will appear when the user tries to access a route that doesn't exist.
 
 Astro has a concept of [Layouts](https://docs.astro.build/core-concepts/layouts/). They are basically components with the specific purpose of providing a reusable page structure to reduce duplicating the same code on multiple pages.
 

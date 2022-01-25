@@ -6,6 +6,7 @@ export interface Props {
   description: string;
   socialImage?: string;
   socialImageAlt?: string;
+  canonicalUrl?: string;
 }
 
 const {
@@ -13,8 +14,9 @@ const {
   description,
   socialImage,
   socialImageAlt,
+  canonicalUrl,
 } = Astro.props;
-const { canonicalURL } = Astro.request;
+const canonicalURL = canonicalUrl ?? Astro.request.canonicalURL;
 const siteName = canonicalURL.hostname;
 const title = `${pageTitle} | ${siteName}`;
 ---

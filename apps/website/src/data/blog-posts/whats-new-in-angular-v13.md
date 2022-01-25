@@ -3,9 +3,10 @@ title: "What's new in Angular v13!"
 description: "Angular v13 is out! Let's take a look at the new features and changes."
 date: 'November 04, 2021'
 heroImage: '/assets/blog/whats-new-in-angular-v13/hero.png'
-heroImageAlt: "Angular v13 logo"
+heroImageAlt: 'Angular v13 logo'
 thumbnailImage: '/assets/blog/whats-new-in-angular-v13/thumbnail.png'
-thumbnailImageAlt: "Angular v13 logo"
+thumbnailImageAlt: 'Angular v13 logo'
+canonicalUrl: 'https://blog.nrwl.io/whats-new-in-angular-v13-77246aca231f'
 ---
 
 It’s November and it has been six months since the last time we had a major version release of the Angular framework back in May 2021. The wait is over and Angular version 13 was just released. Let’s take a look at some of the features and changes released in this new version.
