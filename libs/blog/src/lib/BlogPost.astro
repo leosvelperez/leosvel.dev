@@ -1,12 +1,15 @@
 ---
+import { BlogPostAttribution } from '@leosvel/blog';
+
 export interface Props {
   title: string;
   date: string;
   heroImage: string;
   heroImageAlt: string;
+  originalUrl: string | undefined;
 }
 
-const { title, date, heroImage, heroImageAlt } = Astro.props;
+const { title, date, heroImage, heroImageAlt, originalUrl } = Astro.props;
 ---
 
 <article
@@ -21,7 +24,8 @@ const { title, date, heroImage, heroImageAlt } = Astro.props;
       alt={heroImageAlt}
     />
     <p class="m-0">{date}</p>
-    <h1 class="text-2xl sm:text-4xl font-bold transition-all">{title}</h1>
+    <BlogPostAttribution {originalUrl} />
+    <h1 class="mt-4 text-2xl sm:text-4xl font-bold transition-all">{title}</h1>
   </section>
 
   <main class="blog-content">

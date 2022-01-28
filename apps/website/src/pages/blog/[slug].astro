@@ -22,7 +22,10 @@ const {
   thumbnailImageAlt,
   canonicalUrl,
 } = Astro.props.post;
-console.log(canonicalUrl);
+
+const originalUrl = !canonicalUrl?.startsWith(Astro.site.href)
+  ? canonicalUrl
+  : undefined;
 ---
 
 <Layout
@@ -31,8 +34,9 @@ console.log(canonicalUrl);
   socialImage={thumbnailImage}
   socialImageAlt={thumbnailImageAlt}
   {canonicalUrl}
+  {originalUrl}
 >
-  <BlogPost {title} {date} {heroImage} {heroImageAlt}>
+  <BlogPost {title} {date} {heroImage} {heroImageAlt} {originalUrl}>
     <Content />
   </BlogPost>
 </Layout>
