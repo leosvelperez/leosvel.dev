@@ -1,5 +1,6 @@
 ---
 import { Partytown } from '@builder.io/partytown/react';
+import styles from '../styles/global.css';
 
 export interface Props {
   canonicalURL: URL;
@@ -67,6 +68,4 @@ const canonicalImageSrc = new URL(socialImage, Astro.site);
 <script type="text/partytown" defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "30e7f4a2b20548998ad672795c296f1c"}'></script>
 
 <!-- Global styles -->
-<style global>
-  @import '../styles/global.css';
-</style>
+<style set:html={styles}></style>

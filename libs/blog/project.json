@@ -2,6 +2,10 @@
   "root": "libs/blog",
   "sourceRoot": "libs/blog",
   "projectType": "library",
-  "targets": {},
+  "targets": {
+    "check": {
+      "executor": "@nxtensions/astro:check"
+    }
+  },
   "tags": []
 }

@@ -2,6 +2,10 @@
   "root": "libs/common",
   "sourceRoot": "libs/common",
   "projectType": "library",
-  "targets": {},
+  "targets": {
+    "check": {
+      "executor": "@nxtensions/astro:check"
+    }
+  },
   "tags": []
 }

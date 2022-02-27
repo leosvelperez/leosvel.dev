@@ -2,6 +2,10 @@
   "root": "libs/landing",
   "sourceRoot": "libs/landing",
   "projectType": "library",
-  "targets": {},
+  "targets": {
+    "check": {
+      "executor": "@nxtensions/astro:check"
+    }
+  },
   "tags": []
 }

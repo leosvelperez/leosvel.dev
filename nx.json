@@ -1,5 +1,6 @@
 {
   "npmScope": "leosvel",
+  "defaultProject": "website",
   "affected": {
     "defaultBase": "main"
   },
@@ -17,7 +18,7 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "check"]
       }
     }
   },
