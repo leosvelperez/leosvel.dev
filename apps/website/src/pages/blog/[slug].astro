@@ -2,11 +2,29 @@
 import Layout from '../../layouts/BlogPostLayout.astro';
 import { BlogPost } from '@leosvel/blog';
 
-export function getStaticPaths() {
-  const posts = Astro.fetchContent('../../data/blog-posts/*.md');
+export function getStaticPaths({ rss }) {
+  const posts = Astro.fetchContent('../../blog-posts/*.md')
+    .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
+    .map((post) => ({
+      ...post,
+      slug: post.file.pathname.split('/').pop().split('.').shift(),
+    }));
+
+  rss({
+    title: `Leosvel's blog`,
+    stylesheet: true,
+    description:
+      'My blog with articles about web development and programming in general.',
+    items: posts.map((post) => ({
+      title: post.title,
+      description: post.description,
+      link: `/blog/${post.slug}`,
+      pubDate: post.date,
+    })),
+  });
 
   return posts.map((post) => ({
-    params: { slug: post.file.pathname.split('/').pop().split('.').shift() },
+    params: { slug: post.slug },
     props: { post },
   }));
 }

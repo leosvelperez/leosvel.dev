@@ -236,7 +236,7 @@ You can notice above how I made use of the layout I created in the previous sect
 
 The next page to look at is the blog page located in `apps/website/src/pages/blog/index.astro`. Following Astro's file-based routing approach, this page will be available at the `/blog` URL.
 
-The blog page displays a list of blog posts. These blog posts are written in Markdown files and placed in the `apps/website/src/data/blog-posts` directory. So, I needed to get the list of blog posts and display them.
+The blog page displays a list of blog posts. These blog posts are written in Markdown files and placed in the `apps/website/src/blog-posts` directory. So, I needed to get the list of blog posts and display them.
 
 Let's have a look at the `apps/website/src/pages/blog/index.astro` file to see how I did it:
 
@@ -248,7 +248,7 @@ import { Blog } from '@leosvel/blog';
 const title = 'Blog';
 const description = 'My blog with articles about web development and programming in general.';
 
-const posts = Astro.fetchContent('../../data/blog-posts/*.md').sort(
+const posts = Astro.fetchContent('../../blog-posts/*.md').sort(
   (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
 );
 ---
@@ -263,7 +263,7 @@ Like the [landing page](#landing-page), it's very simple and it delegates the pr
 The following is the Frontmatter script section for this blog post Markdown file:
 
 ```astro
-// apps/website/src/data/blog-posts/creating-my-personal-website-with-astro-tailwindcss-and-nx.md
+// apps/website/src/blog-posts/creating-my-personal-website-with-astro-tailwindcss-and-nx.md
 ---
 title: 'Creating my personal website with Astro, Tailwind CSS, and Nx'
 description: 'How I went about creating my personal website using Astro, Tailwind CSS, and Nx.'
@@ -319,7 +319,7 @@ import Layout from '../../layouts/BlogPostLayout.astro';
 import { BlogPost } from '@leosvel/blog';
 
 export function getStaticPaths() {
-  const posts = Astro.fetchContent('../../data/blog-posts/*.md');
+  const posts = Astro.fetchContent('../../blog-posts/*.md');
 
   return posts.map((post) => ({
     params: { slug: post.file.pathname.split('/').pop().split('.').shift() },

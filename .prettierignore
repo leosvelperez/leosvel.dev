@@ -2,5 +2,5 @@
 
 /dist
 /coverage
-/apps/website/src/data/blog-posts
+/apps/website/src/blog-posts
 Head.astro
