@@ -14,7 +14,7 @@
       "options": {
         "commands": [
           "nx run website:build-astro",
-          "node ./tools/scripts/copy-partytown-files-to-dist.js"
+          "partytown copylib dist/apps/website/~partytown"
         ],
         "parallel": false
       }

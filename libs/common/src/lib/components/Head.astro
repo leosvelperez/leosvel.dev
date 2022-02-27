@@ -1,5 +1,5 @@
 ---
-import { Partytown } from '@builder.io/partytown/react';
+import { partytownSnippet } from '@builder.io/partytown/integration';
 import styles from '../styles/global.css';
 
 export interface Props {
@@ -20,6 +20,7 @@ const {
   socialImageAlt = `Leosvel's website social image`,
 } = Astro.props;
 const canonicalImageSrc = new URL(socialImage, Astro.site);
+const partytownSnippetHtml = partytownSnippet();
 ---
 
 <!-- Global Metadata -->
@@ -62,7 +63,7 @@ const canonicalImageSrc = new URL(socialImage, Astro.site);
 <meta name="twitter:image:alt" content={socialImageAlt} />
 
 <!-- Partytown -->
-<Partytown />
+<script set:html={partytownSnippetHtml}></script>
 
 <!-- Cloudflare Web Analytics -->
 <script type="text/partytown" defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "30e7f4a2b20548998ad672795c296f1c"}'></script>

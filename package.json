@@ -10,7 +10,7 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "@builder.io/partytown": "~0.2.1",
+    "@builder.io/partytown": "~0.4.0",
     "@nrwl/cli": "13.8.3",
     "@nrwl/tao": "13.8.3",
     "@nrwl/workspace": "13.8.3",
