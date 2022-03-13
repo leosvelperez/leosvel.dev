@@ -16,8 +16,10 @@ const {
   socialImageAlt,
   canonicalUrl,
 } = Astro.props;
-const canonicalURL = canonicalUrl ?? Astro.request.canonicalURL;
-const siteName = canonicalURL.hostname;
+const canonicalURL = canonicalUrl
+  ? new URL(canonicalUrl)
+  : Astro.request.canonicalURL;
+const siteName = Astro.request.canonicalURL.hostname;
 const title = `${pageTitle} | ${siteName}`;
 ---
 
