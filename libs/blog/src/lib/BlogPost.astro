@@ -25,7 +25,11 @@ const { title, date, heroImage, heroImageAlt, originalUrl } = Astro.props;
     />
     <p class="m-0">{date}</p>
     <BlogPostAttribution {originalUrl} />
-    <h1 class="mt-4 text-2xl sm:text-4xl font-bold transition-all">{title}</h1>
+    <h1
+      class="mt-4 text-2xl sm:text-4xl font-bold transition-all"
+      set:html={title}
+    >
+    </h1>
   </section>
 
   <main class="blog-content">

@@ -14,7 +14,7 @@ const { description, posts } = Astro.props;
 >
   <section class="mb-8 pb-1 border-b-2 border-cyan-700/50">
     <h1 class="mb-4 text-3xl">Leosvel's blog</h1>
-    <p class="text-lg italic">{description}</p>
+    <p class="text-lg italic" set:html={description}></p>
   </section>
 
   <section class="grid justify-center sm:grid-cols-2 lg:grid-cols-3 gap-8">
