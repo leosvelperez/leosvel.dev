@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   outDir: '../../dist/apps/website',
   site: 'https://leosvel.dev',
-  integrations: [partytown({ config: { debug: true } }), sitemap(), tailwind()],
+  integrations: [partytown(), sitemap(), tailwind()],
   markdown: {
     // syntaxHighlight: 'prism',
     shikiConfig: {
