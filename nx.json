@@ -1,11 +1,9 @@
 {
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "leosvel",
   "defaultProject": "website",
   "affected": {
     "defaultBase": "main"
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
   },
   "implicitDependencies": {
     "package.json": {
@@ -16,19 +14,17 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e", "check"]
+        "cacheableOperations": ["build", "lint", "test", "e2e", "check"],
+        "accessToken": "MmIzNDM1YmYtNTY3NS00MGMxLWIyZGYtYzk4OTcxYWUzYmZmfHJlYWQtd3JpdGU="
       }
     }
   },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
+    }
   },
   "plugins": ["@nxtensions/astro"]
 }

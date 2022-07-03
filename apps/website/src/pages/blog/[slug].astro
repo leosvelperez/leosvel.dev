@@ -1,27 +1,18 @@
 ---
-import Layout from '../../layouts/BlogPostLayout.astro';
 import { BlogPost } from '@leosvel/blog';
+import Layout from '../../layouts/BaseLayout.astro';
 
-export function getStaticPaths({ rss }) {
-  const posts = Astro.fetchContent('../../blog-posts/*.md')
-    .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
+export async function getStaticPaths() {
+  const posts = (await Astro.glob('../../blog-posts/*.md'))
+    .sort(
+      (a, b) =>
+        new Date(b.frontmatter.date).valueOf() -
+        new Date(a.frontmatter.date).valueOf()
+    )
     .map((post) => ({
       ...post,
-      slug: post.file.pathname.split('/').pop().split('.').shift(),
+      slug: post.file.split('/').pop().split('.').shift(),
     }));
-
-  rss({
-    title: `Leosvel's blog`,
-    stylesheet: true,
-    description:
-      'My blog with articles about web development and programming in general.',
-    items: posts.map((post) => ({
-      title: post.title,
-      description: post.description,
-      link: `/blog/${post.slug}`,
-      pubDate: post.date,
-    })),
-  });
 
   return posts.map((post) => ({
     params: { slug: post.slug },
@@ -29,8 +20,8 @@ export function getStaticPaths({ rss }) {
   }));
 }
 
+const { Content } = Astro.props.post;
 const {
-  Content,
   title,
   description,
   date,
@@ -39,7 +30,7 @@ const {
   thumbnailImage,
   thumbnailImageAlt,
   canonicalUrl,
-} = Astro.props.post;
+} = Astro.props.post.frontmatter;
 
 const originalUrl = !canonicalUrl?.startsWith(Astro.site.href)
   ? canonicalUrl

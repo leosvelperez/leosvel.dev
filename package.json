@@ -5,28 +5,35 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "postinstall": "node ./tools/scripts/patch-nx-cli.js"
   },
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "@builder.io/partytown": "~0.5.0",
-    "@nrwl/cli": "13.8.3",
-    "@nrwl/tao": "13.8.3",
-    "@nrwl/workspace": "13.8.3",
-    "@nxtensions/astro": "2.1.0",
+    "@astrojs/partytown": "~0.1.6",
+    "@astrojs/rss": "~0.2.0",
+    "@astrojs/sitemap": "~0.2.4",
+    "@astrojs/tailwind": "~0.2.2",
+    "@builder.io/partytown": "~0.6.2",
+    "@nrwl/devkit": "14.4.0",
+    "@nrwl/nx-cloud": "14.2.0",
+    "@nrwl/workspace": "14.4.0",
+    "@nxtensions/astro": "2.3.0",
     "@types/node": "~16.11.7",
-    "astro": "0.24.0",
+    "astro": "1.0.0-beta.63",
     "autoprefixer": "~10.4.2",
     "fs-extra": "~10.0.1",
+    "nx": "14.4.0",
     "postcss": "~8.4.7",
-    "prettier": "2.5.1",
-    "prettier-plugin-astro": "~0.0.12",
-    "prettier-plugin-tailwindcss": "~0.1.8",
+    "prettier": "2.7.1",
+    "prettier-plugin-astro": "~0.1.1",
+    "prettier-plugin-tailwindcss": "~0.1.11",
     "rehype-autolink-headings": "~6.1.1",
     "rehype-external-links": "~1.0.1",
-    "sass": "latest",
-    "tailwindcss": "~3.0.23",
-    "typescript": "~4.5.5"
+    "rehype-slug": "~5.0.1",
+    "sass": "~1.53.0",
+    "tailwindcss": "~3.1.4",
+    "typescript": "4.7.4"
   }
 }

@@ -1,51 +1,53 @@
-// @ts-check
-export default /** @type {import('astro').AstroUserConfig} */ ({
-  dist: '../../dist/apps/website',
-  buildOptions: {
-    site: 'https://leosvel.dev',
-  },
-  markdownOptions: {
-    render: [
-      '@astrojs/markdown-remark',
-      {
-        rehypePlugins: [
-          'rehype-slug',
-          [
-            'rehype-autolink-headings',
-            {
-              behavior: 'prepend',
-              content: {
-                type: 'element',
-                tagName: 'span',
-                properties: { className: ['heading-link'] },
-                children: [
-                  {
-                    type: 'element',
-                    tagName: 'img',
-                    properties: { src: '/assets/link.svg' },
-                    children: [],
-                  },
-                ],
-              },
-            },
-          ],
-          [
-            'rehype-external-links',
-            {
-              content: {
+import partytown from '@astrojs/partytown';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  outDir: '../../dist/apps/website',
+  site: 'https://leosvel.dev',
+  integrations: [partytown(), sitemap(), tailwind()],
+  markdown: {
+    // syntaxHighlight: 'prism',
+    shikiConfig: {
+      theme: 'css-variables',
+    },
+    rehypePlugins: [
+      'rehype-slug',
+      [
+        'rehype-autolink-headings',
+        {
+          behavior: 'prepend',
+          content: {
+            type: 'element',
+            tagName: 'span',
+            properties: { className: ['heading-link'] },
+            children: [
+              {
                 type: 'element',
                 tagName: 'img',
-                properties: {
-                  src: '/assets/external-link.svg',
-                  alt: 'External link icon',
-                },
+                properties: { src: '/assets/link.svg' },
                 children: [],
               },
-              contentProperties: { className: ['external-link-icon'] },
+            ],
+          },
+        },
+      ],
+      [
+        'rehype-external-links',
+        {
+          content: {
+            type: 'element',
+            tagName: 'img',
+            properties: {
+              src: '/assets/external-link.svg',
+              alt: 'External link icon',
             },
-          ],
-        ],
-      },
+            children: [],
+          },
+          contentProperties: { className: ['external-link-icon'] },
+        },
+      ],
     ],
   },
 });

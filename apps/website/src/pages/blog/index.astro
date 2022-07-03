@@ -6,8 +6,10 @@ const title = 'Blog';
 const description =
   'My blog with articles about web development and programming in general.';
 
-const posts = Astro.fetchContent('../../blog-posts/*.md').sort(
-  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+const posts = (await Astro.glob('../../blog-posts/*.md')).sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
 );
 ---
 
