@@ -1,6 +1,6 @@
 ---
 import { partytownSnippet } from '@builder.io/partytown/integration';
-import styles from '../styles/global.css';
+import '../styles/global.css';
 
 export interface Props {
   canonicalURL: URL;
@@ -68,6 +68,3 @@ const partytownSnippetHtml = partytownSnippet();
 
 <!-- Cloudflare Web Analytics -->
 <!-- <script type="text/partytown" defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "30e7f4a2b20548998ad672795c296f1c"}'></script> -->
-
-<!-- Global styles -->
-<style set:html={styles}></style>

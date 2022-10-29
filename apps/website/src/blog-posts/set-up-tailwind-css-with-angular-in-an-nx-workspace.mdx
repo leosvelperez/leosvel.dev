@@ -40,11 +40,13 @@ The idea is to show how different applications can still use the same components
 
 First things first! We start by creating a new **Nx** workspace where our applications and libraries will be located. To do that, we can run:
 
-    ❯ npx create-nx-workspace@latest angular-tailwind-nx --pm=yarn
-    ✔ What to create in the new workspace · angular
-    ✔ Application name                    · app1
-    ✔ Default stylesheet format           · css
-    ✔ Use Nx Cloud? (It's free and doesn't require registration.) · No
+```shell
+❯ npx create-nx-workspace@latest angular-tailwind-nx --pm=yarn
+✔ What to create in the new workspace · angular
+✔ Application name                    · app1
+✔ Default stylesheet format           · css
+✔ Use Nx Cloud? (It's free and doesn't require registration.) · No
+```
 
 > Passing the `--packageManager` (or `--pm`) flag allows us to change the package manager. If not passed, it defaults to `npm`.
 
@@ -58,7 +60,9 @@ Now that we have a workspace with an **Angular** application ready to be used, l
 
 **Angular** added native support for building applications using **Tailwind CSS** a while ago. Still, we need to set it up in the workspace, and to do so, we can use the `@nrwl/angular:setup-tailwind` generator by simply running:
 
-    npx nx generate @nrwl/angular:setup-tailwind app1
+```shell
+npx nx generate @nrwl/angular:setup-tailwind app1
+```
 
 The above command will do a few things for us:
 
@@ -192,7 +196,9 @@ Next, we update the `apps/app1/src/app/app.component.html` file with the require
 
 With all set, let’s see it in action by running:
 
-    npx nx run app1:serve
+```shell
+npx nx run app1:serve
+```
 
 Visiting [https://localhost:4200](https://localhost:4200) in your browser should show the application looking like the following screenshot:
 
@@ -265,11 +271,15 @@ Our application is looking good. At the same time, there’s a great opportunity
 
 We’ll start by extracting the header of the application into a reusable component and placing it into a library. To do so, we start by creating a new **Angular** library in our workspace by running:
 
-    npx nx generate @nrwl/angular:lib lib1
+```shell
+npx nx generate @nrwl/angular:lib lib1
+```
 
 Next, we create the component for the header in the library we just generated and we export it so it can be imported by consumers:
 
-    npx nx generate @nrwl/angular:component header --project=lib1 --export
+```shell
+npx nx generate @nrwl/angular:component header --project=lib1 --export
+```
 
 Add the markup for the header to the `libs/lib1/src/lib/header/header.component.html`:
 
@@ -298,7 +308,7 @@ And finally, replace the existing markup for the header in the `apps/app1/src/ap
 ```html
 <div class="font-mono">
   <angular-tailwind-nx-header></angular-tailwind-nx-header>
-  
+
   ...
 </div>
 ```
@@ -313,11 +323,15 @@ Similar to the previous section we are going to start by creating a new library 
 
 Run the following command to generate the library:
 
-    npx nx generate @nrwl/angular:lib lib2 --buildable
+```shell
+npx nx generate @nrwl/angular:lib lib2 --buildable
+```
 
 Next, we configure **Tailwind CSS** for it:
 
-    npx nx generate @nrwl/angular:setup-tailwind lib2
+```shell
+npx nx generate @nrwl/angular:setup-tailwind lib2
+```
 
 As explained in a previous section when we did the same for the application, the above command will install any required dependencies if needed, create the `tailwind.config.js` file and in the specific case of libraries, it will also add the `tailwindConfig` property to the build target of the project configuration.
 
@@ -325,7 +339,9 @@ As explained in a previous section when we did the same for the application, the
 
 Then, we create the card component:
 
-    npx nx generate @nrwl/angular:component card --project=lib2 --export
+```shell
+npx nx generate @nrwl/angular:component card --project=lib2 --export
+```
 
 We add the component to the library entry point located in `libs/lib2/src/index.ts`:
 
@@ -409,7 +425,9 @@ With that in place, we can serve the application and it should be working exactl
 
 To finish the buildable library setup, we can follow the instructions in [https://nx.dev/ci/setup-incremental-builds-angular#adjust-the-app-executor](https://nx.dev/ci/setup-incremental-builds-angular#adjust-the-app-executor). We need to install the `@nrwl/web` package, change the application `build` target executor to `@nrwl/angular:webpack-browser`, and change the application `serve` target executor to `@nrwl/web:file-server`:
 
-    yarn add -D @nrwl/web@latest
+```shell
+yarn add -D @nrwl/web@latest
+```
 
 ```json
 {
@@ -487,10 +505,12 @@ We created some CSS classes where we are applying the same styles we had in the 
 
 If we now serve our application (or build the library), we’ll find ourselves with the following error:
 
-    ------------------------------------------------------------------------------
-    Building entry point '@angular-tailwind-nx/lib2'
-    ------------------------------------------------------------------------------
-    /angular-tailwind-nx/libs/lib2/src/lib/card/card.component.css:2:3: The `p-lg` class does not exist. If `p-lg` is a custom class, make sure it is defined within a `@layer` directive.
+```shell
+------------------------------------------------------------------------------
+Building entry point '@angular-tailwind-nx/lib2'
+------------------------------------------------------------------------------
+/angular-tailwind-nx/libs/lib2/src/lib/card/card.component.css:2:3: The `p-lg` class does not exist. If `p-lg` is a custom class, make sure it is defined within a `@layer` directive.
+```
 
 This is to be expected. The library build is failing because now we are using some **Tailwind CSS** directives and functions, and therefore, those directives and functions are being processed within the library context. Since we haven’t touched the `tailwind.config.js` file, **Tailwind CSS** doesn’t know about our custom theme.
 
@@ -648,7 +668,9 @@ There’s one important thing to note though, this new application will have a d
 
 Generate the application by running the following command:
 
-    npx nx generate @nrwl/angular:app app2 --addTailwind --style=css --routing=false
+```shell
+npx nx generate @nrwl/angular:app app2 --addTailwind --style=css --routing=false
+```
 
 The above command will generate the new application and it will configure **Tailwind CSS** as well. Using the `--addTailwind` flag will instruct the application generator to automatically run the `@nrwl/angular:setup-tailwind` generator when creating a new application.
 
@@ -754,7 +776,9 @@ module.exports = {
 
 Now that we have the second application configured, let’s run it:
 
-    npx nx run app2:serve
+```shell
+npx nx run app2:serve
+```
 
 > You can pass a `--port=4201` to the above command to run it in a different port if it’s in use or if you want to have both applications running side-by-side.
 
@@ -889,7 +913,9 @@ Now that both our applications are looking great, we want to share our awesome b
 
 First, we create the publishable library with **Tailwind CSS** support:
 
-    npx nx generate @nrwl/angular:lib lib3 --publishable --importPath=@angular-tailwind-nx/lib3 --addTailwind
+```shell
+npx nx generate @nrwl/angular:lib lib3 --publishable --importPath=@angular-tailwind-nx/lib3 --addTailwind
+```
 
 Then, we update the `libs/lib3/tailwind.config.js` to use the shared preset:
 
@@ -909,7 +935,9 @@ module.exports = {
 
 Then, we create the button component:
 
-    npx nx generate @nrwl/angular:component button --project=lib3 --export
+```shell
+npx nx generate @nrwl/angular:component button --project=lib3 --export
+```
 
 We add the component to the library entry point located in `libs/lib3/src/index.ts`:
 
@@ -1079,7 +1107,7 @@ Another thing to consider is that the **Tailwind CSS** CLI only supports process
 
 To orchestrate this, we are going to make the following changes to the `lib3` project configuration:
 
-* Rename the existing `build` target to `build-angular` 
+* Rename the existing `build` target to `build-angular`
 * Create a `build-themes` target that runs, in parallel, the **Tailwind CSS** CLI for every theme in our library
 * Create a `build-lib` target that runs, in parallel, the `build-angular` and `build-themes` targets
 * Create a `build` target that first, deletes the destination folder, and then runs the `build-lib` target
@@ -1170,7 +1198,9 @@ The only thing remaining is to update the `libs/lib3/ng-package.json` to prevent
 
 We can now build the library by running:
 
-    npx nx run lib3:build
+```shell
+npx nx run lib3:build
+```
 
 If we check the output folder `dist/libs/lib3`, we’ll see there’s a `themes` folder in it with a couple of files `indigo.css` and `teal.css`:
 
@@ -1178,7 +1208,7 @@ If we check the output folder `dist/libs/lib3`, we’ll see there’s a `themes`
 
 These theme files can now be used by the consumers of our library to properly style the components exposed by it. All they would need to do is to import one of those themes into their application styles entry point or `index.html` file.
 
-They can also customize the included themes by overwriting any of the CSS variables of the theme or the specific styles of the `atn-button` CSS class. 
+They can also customize the included themes by overwriting any of the CSS variables of the theme or the specific styles of the `atn-button` CSS class.
 
 ## Conclusion
 

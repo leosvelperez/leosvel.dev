@@ -59,7 +59,7 @@ Astro uses an approach called **file-based routing** to generate the application
 
 Having a clearer grasp of Astro's features, I started by creating a new empty Nx workspace by running the following command:
 
-```bash
+```shell
 npx create-nx-workspace@latest leosvel-dev --preset=empty --pm=yarn
 ```
 
@@ -67,23 +67,23 @@ npx create-nx-workspace@latest leosvel-dev --preset=empty --pm=yarn
 
 Once the workspace was generated, I navigated to it and installed the `@nxtensions/astro` plugin:
 
-```bash
+```shell
 cd leosvel-dev && yarn add -D @nxtensions/astro@latest
 ```
 
 Finally, I proceeded to generate the Astro application by running:
 
-```bash
+```shell
 npx nx g @nxtensions/astro:app website
 ```
 
 I didn't choose to use any renderer (to support other frameworks) because I just wanted to use [Astro components](https://docs.astro.build/core-concepts/astro-components/).
 
-> **Tip**: If you use [VSCode](https://code.visualstudio.com/), you can use the [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) extension that provides a UI for the Nx CLI. With it, you can use a GUI to run any Nx command. 
+> **Tip**: If you use [VSCode](https://code.visualstudio.com/), you can use the [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) extension that provides a UI for the Nx CLI. With it, you can use a GUI to run any Nx command.
 
 At this point, I had a new Nx workspace with an Astro application properly configured and I was already able to start the Astro development server by running:
 
-```bash
+```shell
 npx nx dev website
 ```
 
@@ -97,11 +97,11 @@ The generated application comes with a default landing page with some content to
 
 To configure Tailwind CSS, I started by installing the required packages:
 
-```bash
+```shell
 yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest
 ```
 
-Then, I added the configuration for it in the project root: 
+Then, I added the configuration for it in the project root:
 
 ```js
 // apps/website/tailwind.config.cjs
@@ -186,7 +186,7 @@ One important thing to note is the [`slot` tag](https://docs.astro.build/core-co
 
 As you can see in the code, I'm importing several components from `@leosvel/common`. This is a library I created in the workspace where I placed some common components used by the different website's pages. I created the library by running:
 
-```bash
+```shell
 npx nx g @nxtensions/astro:lib common
 ```
 
@@ -435,7 +435,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
 
 One of the benefits of using Nx is that you can easily visualize your workspace projects and their dependencies. By running the following command:
 
-```bash
+```shell
 npx nx dep-graph
 ```
 
@@ -482,7 +482,7 @@ To enable it, I just had to add my website to it. This is done on the `Web Analy
 
 I installed `@builder.io/partytown`:
 
-```bash
+```shell
 yarn add -D @builder.io/partytown
 ```
 

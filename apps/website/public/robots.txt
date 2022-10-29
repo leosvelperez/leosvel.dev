@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://leosvel.dev/sitemap.xml
+Sitemap: https://leosvel.dev/sitemap-index.xml

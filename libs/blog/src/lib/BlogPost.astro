@@ -24,12 +24,11 @@ const { title, date, heroImage, heroImageAlt, originalUrl } = Astro.props;
       alt={heroImageAlt}
     />
     <p class="m-0">{date}</p>
-    <BlogPostAttribution {originalUrl} />
+    <BlogPostAttribution originalUrl={originalUrl} />
     <h1
       class="mt-4 text-2xl sm:text-4xl font-bold transition-all"
       set:html={title}
-    >
-    </h1>
+    />
   </section>
 
   <main class="blog-content">
@@ -43,6 +42,27 @@ const { title, date, heroImage, heroImageAlt, originalUrl } = Astro.props;
 </article>
 
 <style lang="scss" is:global>
+  :root {
+    --astro-code-color-text: theme('colors.slate.100');
+    --astro-code-color-background: theme('colors.cyan.900');
+    --astro-code-token-constant: theme('colors.sky.300');
+    /* TODO: identify what's this for */
+    --astro-code-token-string: black;
+    --astro-code-token-comment: theme('colors.cyan.100');
+    --astro-code-token-keyword: theme('colors.amber.300');
+    /* TODO: identify what's this for */
+    --astro-code-token-parameter: black;
+    --astro-code-token-function: theme('colors.fuchsia.300');
+    --astro-code-token-string-expression: theme('colors.green.300');
+    --astro-code-token-punctuation: theme('colors.cyan.200');
+    /* TODO: identify what's this for */
+    --astro-code-token-link: black;
+  }
+
+  .astro-code {
+    @apply py-5 px-4;
+  }
+
   .blog-content {
     > * + * {
       @apply mt-4;

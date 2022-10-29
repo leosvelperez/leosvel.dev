@@ -3,7 +3,7 @@ import { BlogPost } from '@leosvel/blog';
 import Layout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-  const posts = (await Astro.glob('../../blog-posts/*.md'))
+  const posts = (await Astro.glob('../../blog-posts/*.mdx'))
     .sort(
       (a, b) =>
         new Date(b.frontmatter.date).valueOf() -

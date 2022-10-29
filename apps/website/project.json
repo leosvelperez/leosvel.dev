@@ -3,21 +3,10 @@
   "projectType": "application",
   "sourceRoot": "apps/website/src",
   "targets": {
-    "build-astro": {
-      "outputs": ["dist/apps/website"],
+    "build": {
+      "outputs": ["{workspaceRoot}/dist/apps/website"],
       "executor": "@nxtensions/astro:build",
       "options": {}
-    },
-    "build": {
-      "executor": "@nrwl/workspace:run-commands",
-      "outputs": ["dist/apps/website"],
-      "options": {
-        "commands": [
-          "nx run website:build-astro",
-          "partytown copylib dist/apps/website/~partytown"
-        ],
-        "parallel": false
-      }
     },
     "dev": {
       "executor": "@nxtensions/astro:dev",
