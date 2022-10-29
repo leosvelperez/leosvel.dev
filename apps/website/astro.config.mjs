@@ -10,12 +10,7 @@ import rehypeSlug from 'rehype-slug';
 export default defineConfig({
   outDir: '../../dist/apps/website',
   site: 'https://leosvel.dev',
-  integrations: [
-    mdx(),
-    partytown({ config: { debug: true } }),
-    sitemap(),
-    tailwind(),
-  ],
+  integrations: [mdx(), partytown(), sitemap(), tailwind()],
   markdown: {
     // syntaxHighlight: 'prism',
     shikiConfig: {
