@@ -6,7 +6,7 @@ const title = 'Blog';
 const description =
   'My blog with articles about web development and programming in general.';
 
-const posts = (await Astro.glob('../../blog-posts/*.md')).sort(
+const posts = (await Astro.glob('../../blog-posts/*.mdx')).sort(
   (a, b) =>
     new Date(b.frontmatter.date).valueOf() -
     new Date(a.frontmatter.date).valueOf()
@@ -14,10 +14,10 @@ const posts = (await Astro.glob('../../blog-posts/*.md')).sort(
 ---
 
 <Layout
-  {title}
-  {description}
+  title={title}
+  description={description}
   socialImage="/assets/blog-leosvel.dev.png"
   socialImageAlt="Leosvel's blog social image"
 >
-  <Blog {description} {posts} />
+  <Blog description={description} posts={posts} />
 </Layout>

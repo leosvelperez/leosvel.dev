@@ -16,8 +16,9 @@ const {
   socialImageAlt,
   canonicalUrl,
 } = Astro.props;
-const canonicalURL = canonicalUrl ? new URL(canonicalUrl) : Astro.canonicalURL;
-const siteName = Astro.canonicalURL.hostname;
+const siteUrl = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = canonicalUrl ? new URL(canonicalUrl) : siteUrl;
+const siteName = siteUrl.hostname;
 const title = `${pageTitle} | ${siteName}`;
 const { pathname: currentPage } = new URL(Astro.request.url);
 ---
@@ -25,19 +26,19 @@ const { pathname: currentPage } = new URL(Astro.request.url);
 <html lang="en" class="scroll-smooth">
   <head>
     <Head
-      {title}
-      {description}
-      {canonicalURL}
-      {siteName}
-      {socialImage}
-      {socialImageAlt}
+      title={title}
+      description={description}
+      canonicalURL={canonicalURL}
+      siteName={siteName}
+      socialImage={socialImage}
+      socialImageAlt={socialImageAlt}
     />
   </head>
 
   <body
     class="min-h-screen w-screen bg-white flex flex-col font-mono text-white selection:bg-cyan-700 selection:text-white overflow-x-hidden"
   >
-    <Header {currentPage} />
+    <Header currentPage={currentPage} />
 
     <main class="flex flex-1">
       <slot />

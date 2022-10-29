@@ -1,21 +1,25 @@
+import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig } from 'astro/config';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypeSlug from 'rehype-slug';
 
 export default defineConfig({
   outDir: '../../dist/apps/website',
   site: 'https://leosvel.dev',
-  integrations: [partytown(), sitemap(), tailwind()],
+  integrations: [mdx(), partytown(), sitemap(), tailwind()],
   markdown: {
     // syntaxHighlight: 'prism',
     shikiConfig: {
       theme: 'css-variables',
     },
     rehypePlugins: [
-      'rehype-slug',
+      rehypeSlug,
       [
-        'rehype-autolink-headings',
+        rehypeAutolinkHeadings,
         {
           behavior: 'prepend',
           content: {
@@ -34,7 +38,7 @@ export default defineConfig({
         },
       ],
       [
-        'rehype-external-links',
+        rehypeExternalLinks,
         {
           content: {
             type: 'element',
