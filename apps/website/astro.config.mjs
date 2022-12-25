@@ -10,48 +10,53 @@ import rehypeSlug from 'rehype-slug';
 export default defineConfig({
   outDir: '../../dist/apps/website',
   site: 'https://leosvel.dev',
-  integrations: [mdx(), partytown(), sitemap(), tailwind()],
+  integrations: [
+    mdx({
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'prepend',
+            content: {
+              type: 'element',
+              tagName: 'span',
+              properties: { className: ['heading-link'] },
+              children: [
+                {
+                  type: 'element',
+                  tagName: 'img',
+                  properties: { src: '/assets/link.svg' },
+                  children: [],
+                },
+              ],
+            },
+          },
+        ],
+        [
+          rehypeExternalLinks,
+          {
+            content: {
+              type: 'element',
+              tagName: 'img',
+              properties: {
+                src: '/assets/external-link.svg',
+                alt: 'External link icon',
+              },
+              children: [],
+            },
+            contentProperties: { className: ['external-link-icon'] },
+          },
+        ],
+      ],
+    }),
+    partytown(),
+    sitemap(),
+    tailwind(),
+  ],
   markdown: {
-    // syntaxHighlight: 'prism',
     shikiConfig: {
       theme: 'css-variables',
     },
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'prepend',
-          content: {
-            type: 'element',
-            tagName: 'span',
-            properties: { className: ['heading-link'] },
-            children: [
-              {
-                type: 'element',
-                tagName: 'img',
-                properties: { src: '/assets/link.svg' },
-                children: [],
-              },
-            ],
-          },
-        },
-      ],
-      [
-        rehypeExternalLinks,
-        {
-          content: {
-            type: 'element',
-            tagName: 'img',
-            properties: {
-              src: '/assets/external-link.svg',
-              alt: 'External link icon',
-            },
-            children: [],
-          },
-          contentProperties: { className: ['external-link-icon'] },
-        },
-      ],
-    ],
   },
 });
