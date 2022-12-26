@@ -1,3 +1,7 @@
+---
+import Link from './Link.astro';
+---
+
 <div class="flex w-full flex-col items-center justify-center bg-cyan-900 py-12">
   <img
     class="animate-zoom-in-slow h-40 w-40 rounded-full shadow-2xl shadow-black/40 grayscale"
@@ -29,8 +33,9 @@
     <p
       class="animate-slide-in-left mt-8 text-center text-lg transition-all sm:text-xl"
     >
-      Lately, I've been more focused on frontend development and monorepo
-      tooling with <span class="text-orange-300">Nx</span>.
+      Lately, I've been more focused on frontend development and <Link
+        href="https://monorepo.tools/">monorepo tooling</Link
+      > with <Link href="https://nx.dev/">Nx</Link>.
     </p>
   </div>
 </div>
