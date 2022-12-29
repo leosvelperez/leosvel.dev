@@ -27,6 +27,7 @@ const {
   date,
   heroImage,
   heroImageAlt,
+  keywords: extraKeywords,
   thumbnailImage,
   thumbnailImageAlt,
   canonicalUrl,
@@ -44,6 +45,7 @@ const originalUrl = !canonicalUrl?.startsWith(Astro.site.href)
   socialImageAlt={thumbnailImageAlt}
   {canonicalUrl}
   {originalUrl}
+  {extraKeywords}
 >
   <BlogPost {title} {date} {heroImage} {heroImageAlt} {originalUrl}>
     <Content />
