@@ -19,6 +19,7 @@ const {
   socialImageAlt = `Leosvel's website social image`,
 } = Astro.props;
 const canonicalImageSrc = new URL(socialImage, Astro.site);
+const sanitizedDescription = description.replace(/(<([^>]+)>)/ig, '');
 ---
 
 <!-- Global Metadata -->
@@ -35,7 +36,7 @@ const canonicalImageSrc = new URL(socialImage, Astro.site);
 <title set:html={title}></title>
 <meta name="title" content={title} />
 <meta name="author" content="Leosvel Pérez Espinosa" />
-<meta name="description" content={description} />
+<meta name="description" content={sanitizedDescription} />
 <meta
   name="keywords"
   content="Leosvel Pérez Espinosa, Blog, Web Development, Angular, JavasScript, TypeScript, HTML, CSS, Monorepos, Nx"
@@ -45,7 +46,7 @@ const canonicalImageSrc = new URL(socialImage, Astro.site);
 <!-- OpenGraph Tags -->
 <meta property="og:type" content="article" />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={sanitizedDescription} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:site_name" content={siteName} />
 <meta property="og:locale" content="en_US" />
@@ -57,7 +58,7 @@ const canonicalImageSrc = new URL(socialImage, Astro.site);
 <meta name="twitter:site" content="@leosvelperez_" />
 <meta name="twitter:creator" content="@leosvelperez_" />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={sanitizedDescription} />
 <meta name="twitter:image" content={canonicalImageSrc} />
 <meta name="twitter:image:alt" content={socialImageAlt} />
 
