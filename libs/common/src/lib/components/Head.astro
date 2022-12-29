@@ -4,8 +4,9 @@ import '../styles/global.css';
 export interface Props {
   canonicalURL: URL;
   description: string;
-  title: string;
   siteName: string;
+  title: string;
+  extraKeywords?: string[];
   socialImage?: string;
   socialImageAlt?: string;
 }
@@ -13,13 +14,17 @@ export interface Props {
 const {
   canonicalURL,
   description,
-  title,
   siteName,
+  title,
+  extraKeywords = [],
   socialImage = 'assets/leosvel.dev.png',
   socialImageAlt = `Leosvel's website social image`,
 } = Astro.props;
 const canonicalImageSrc = new URL(socialImage, Astro.site);
 const sanitizedDescription = description.replace(/(<([^>]+)>)/ig, '');
+
+const defaultKeywords = ['Leosvel Pérez Espinosa', 'Blog'];
+const keywords = Array.from(new Set([...defaultKeywords, ...extraKeywords])).join(', ');
 ---
 
 <!-- Global Metadata -->
@@ -37,10 +42,7 @@ const sanitizedDescription = description.replace(/(<([^>]+)>)/ig, '');
 <meta name="title" content={title} />
 <meta name="author" content="Leosvel Pérez Espinosa" />
 <meta name="description" content={sanitizedDescription} />
-<meta
-  name="keywords"
-  content="Leosvel Pérez Espinosa, Blog, Web Development, Angular, JavasScript, TypeScript, HTML, CSS, Monorepos, Nx"
-/>
+<meta name="keywords" content={keywords} />
 <link rel="canonical" href={canonicalURL} />
 
 <!-- OpenGraph Tags -->

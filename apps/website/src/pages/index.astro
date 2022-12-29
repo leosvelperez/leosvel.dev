@@ -4,8 +4,18 @@ import { Landing } from '@leosvel/landing';
 
 const title = 'Home';
 const description = 'My personal website with my projects and blog.';
+const extraKeywords = [
+  'Web Development',
+  'JavaScript',
+  'TypeScript',
+  'HTML',
+  'CSS',
+  'Monorepos',
+  'Nx',
+  'Angular',
+];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} extraKeywords={extraKeywords}>
   <Landing />
 </Layout>

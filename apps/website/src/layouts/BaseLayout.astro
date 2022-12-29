@@ -2,19 +2,21 @@
 import { Footer, Head, Header } from '@leosvel/common';
 
 export interface Props {
-  title: string;
   description: string;
+  title: string;
+  canonicalUrl?: string;
+  extraKeywords?: string[];
   socialImage?: string;
   socialImageAlt?: string;
-  canonicalUrl?: string;
 }
 
 const {
-  title: pageTitle,
   description,
+  title: pageTitle,
+  canonicalUrl,
+  extraKeywords,
   socialImage,
   socialImageAlt,
-  canonicalUrl,
 } = Astro.props;
 const siteUrl = new URL(Astro.url.pathname, Astro.site);
 const canonicalURL = canonicalUrl ? new URL(canonicalUrl) : siteUrl;
@@ -29,6 +31,7 @@ const { pathname: currentPage } = new URL(Astro.request.url);
       title={title}
       description={description}
       canonicalURL={canonicalURL}
+      extraKeywords={extraKeywords}
       siteName={siteName}
       socialImage={socialImage}
       socialImageAlt={socialImageAlt}
@@ -36,7 +39,7 @@ const { pathname: currentPage } = new URL(Astro.request.url);
   </head>
 
   <body
-    class="min-h-screen w-screen bg-white flex flex-col font-mono text-white selection:bg-cyan-700 selection:text-white overflow-x-hidden"
+    class="flex min-h-screen w-screen flex-col overflow-x-hidden bg-white font-mono text-white selection:bg-cyan-700 selection:text-white"
   >
     <Header currentPage={currentPage} />
 
