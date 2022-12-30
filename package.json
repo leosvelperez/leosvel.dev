@@ -9,6 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "@astrojs/mdx": "~0.13.0",
+    "@astrojs/prefetch": "^0.1.1",
     "@astrojs/rss": "~1.2.1",
     "@astrojs/sitemap": "~1.0.0",
     "@astrojs/tailwind": "~2.1.3",
